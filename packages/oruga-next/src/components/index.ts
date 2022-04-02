@@ -15,6 +15,7 @@ import Modal from './modal'
 import Notification from './notification'
 import Pagination from './pagination'
 import Radio from './radio'
+import Rate from './rate'
 import Select from './select'
 import Skeleton from './skeleton'
 import Sidebar from './sidebar'
@@ -45,6 +46,7 @@ export {
     Notification,
     Pagination,
     Radio,
+    Rate,
     Select,
     Skeleton,
     Sidebar,
