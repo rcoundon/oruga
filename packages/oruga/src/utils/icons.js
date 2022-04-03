@@ -38,7 +38,7 @@ const faIcons = () => {
             'caret-up': 'caret-up',
             'close-circle': 'times-circle',
             'close': 'times',
-            'loading': 'circle-notch'
+            'loading': 'circle-notch', 'star': 'star'
         }
     }
 }

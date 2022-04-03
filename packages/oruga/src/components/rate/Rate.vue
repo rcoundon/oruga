@@ -9,14 +9,13 @@
             @mouseleave="resetNewValue"
             @click.prevent="confirmValue(item)"
         >
-            <b-icon :pack="iconPack" :icon="icon" :size="size" />
-            <b-icon
+            <o-icon :pack="iconPack" :icon="icon" :size="size" />
+            <o-icon
                 v-if="checkHalf(item)"
                 class="is-half"
                 :pack="iconPack"
                 :icon="icon"
                 :size="size"
-                :style="halfStyle"
             />
         </div>
         <div class="rate-text" :class="size" v-if="showText || showScore || customText">
@@ -24,18 +23,29 @@
             <span v-if="customText && !showText">{{ customText }}</span>
         </div>
     </div>-->
-    <p>Something here next</p>
+    <div :class="rootClasses">
+        <p>Something here</p>
+    </div>
 </template>
 
+<script>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-// import config from '../../utils/config'
 import Icon from '../icon/Icon.vue'
+import BaseComponentMixin from '../../utils/BaseComponentMixin'
+import { getValueByPath } from '../../utils/helpers'
+import { getOptions } from '../../utils/config'
 
-export default defineComponent({
+/**
+ * Star rating component
+ */
+export default {
     name: 'ORate',
+    mixins: [BaseComponentMixin],
+    provide() {
+        return {
+            $rate: this
+        }
+    },
     components: {
         [Icon.name]: Icon
     },
@@ -52,7 +62,10 @@ export default defineComponent({
             type: String,
             default: 'star'
         },
-        iconPack: String,
+        iconPack: {
+            type: String,
+            default: () => { return getValueByPath(getOptions(), 'rate.iconPack', undefined) }
+        },
         size: String,
         spaced: Boolean,
         rtl: Boolean,
@@ -134,5 +147,5 @@ export default defineComponent({
             return output
         }
     }
-})
+}
 </script>
