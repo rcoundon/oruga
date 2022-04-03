@@ -34,6 +34,10 @@ import { defineComponent } from 'vue'
 // import config from '../../utils/config'
 import Icon from '../icon/Icon.vue'
 
+/**
+ * Show a star-basedrating 
+*/
+
 export default defineComponent({
     name: 'ORate',
     components: {

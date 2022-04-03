@@ -23,7 +23,7 @@
             <span v-if="customText && !showText">{{ customText }}</span>
         </div>
     </div>-->
-    <div :class="rootClasses">
+    <div>
         <p>Something here</p>
     </div>
 </template>
